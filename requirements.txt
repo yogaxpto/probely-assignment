@@ -1,0 +1,7 @@
+django
+django-filter
+djangorestframework
+drf-spectacular
+factory-boy
+faker
+psycopg2
