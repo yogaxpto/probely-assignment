@@ -16,7 +16,7 @@ goal is to build the backend for this application.
 
 * Django 4.x (any modules, any data structures)
 * API only, no need for UI
-* Please host your repository on Github and either make it public or provide access to `martinOpply` for review.
+* Please host your repository on Github and either make it public or provide access to `martincardo_ai` for review.
 
 ### Concluding remarks
 

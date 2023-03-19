@@ -9,6 +9,8 @@ services:
         volumes:
             - ./src/:/app
         command: python manage.py runserver 0.0.0.0:8000
+        environment:
+            REDIS_HOST: redis
         depends_on:
             - db
             - web_setup
@@ -22,6 +24,9 @@ services:
             - db-data:/var/lib/postgresql/data
         environment:
             POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+
+    redis:
+        image: redis:latest
 
     web_setup:
         build: .

@@ -1,5 +1,6 @@
 django
 django-filter
+django-redis
 djangorestframework
 drf-spectacular
 factory-boy
