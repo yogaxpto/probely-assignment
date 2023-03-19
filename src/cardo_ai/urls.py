@@ -22,6 +22,7 @@ from rest_framework.authtoken.views import obtain_auth_token
 from rest_framework.routers import DefaultRouter
 from rest_framework.viewsets import ModelViewSet
 
+from data_upload.views import DataUploadView
 from order.views import OrderViewSet
 from product.views import ProductViewSet
 from user.views import UserViewSet
@@ -39,6 +40,7 @@ for prefix, view_set in list_routes:
 urlpatterns = [
     path('', RedirectView.as_view(pattern_name='swagger-ui', permanent=False)),
     path('api/v1/', include(router.urls), name='api'),
+    path('api/v1/data_upload/', DataUploadView.as_view(), name='data_upload'),
     path('api/api-token-auth/', obtain_auth_token, name='api_token_auth'),
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
     # Optional UI:

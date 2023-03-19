@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'user',
     'order',
     'product',
+    'data_upload',
 ]
 
 MIDDLEWARE = [
@@ -155,14 +156,15 @@ REST_FRAMEWORK = {
 }
 
 _spectacular_description = """
-API Schema of the cardo_ai Product infrastructure.  
+API Schema of the Cardo AI Loans infrastructure.  
   
 Documentation available at [/api/schema/redoc/](/api/schema/redoc/).
 """
 
 SPECTACULAR_SETTINGS = {
-    'TITLE': 'cardo_ai Product API',
+    'TITLE': 'Cardo AI Loans API',
     'DESCRIPTION': _spectacular_description,
     'VERSION': '0.0.1',
     'SERVE_INCLUDE_SCHEMA': True,
+    'COMPONENT_SPLIT_REQUEST': True,
 }
