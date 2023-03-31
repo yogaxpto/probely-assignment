@@ -13,8 +13,12 @@ class BaseModelViewSet(ModelViewSet, BaseViewSet):
     pass
 
 
+class BaseReadModelViewSet(mixins.ListModelMixin,
+                           mixins.RetrieveModelMixin,
+                           BaseViewSet):
+    pass
+
+
 class BaseCreateReadModelViewSet(mixins.CreateModelMixin,
-                                 mixins.ListModelMixin,
-                                 mixins.RetrieveModelMixin,
-                                 BaseViewSet):
+                                 BaseReadModelViewSet):
     pass

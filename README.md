@@ -1,4 +1,4 @@
-# cardo_ai Assignment
+# Cardo AI Assignment
 
 ## Topics
 
@@ -16,22 +16,17 @@
 
 The following assumptions were considered:
 
-- The project is implemented using Django with DRF;
+- The project is implemented using Django with DRF, drf-spectacular and Redis;
 - The project should be ready for deployment to production;
-- Although not required, a swagger UI was created for testing purposes with some documentation.
+- A Loan is expected to have a Cash Flow of type "Funding".
 
 ## Requirements
 
 The following requirements were considered:
 
 - The solution must be implemented with Python;
-- The solution must be implemented with Django;
-- There must be a route that allows for a user to log in and retrieve its authentication token;
-- There must be a route that allows a user to list all products with its id, name, price and quantity fields;
-- There must be a route that allows a user to create an order for a given product;
-- All orders should be registered an any user can see its order's history;
-- Given that a product has enough quantity, when a user submits an order for that product then it should be expected
-  that the product should decrease its quantity in stock by the same amount as defined in the order.
+- The solution must be implemented with Django, using Django Rest Framework;
+- Any Functional Requirement met is also defined by its integration test. 
 
 ## Installation
 
@@ -65,10 +60,10 @@ Any new user created at `POST /api/v1/users` can also be used to log in as well
 
 ## Running unit tests
 
-Whilst running the project, it is possible to run the unit tests with:
+It is possible to run the unit tests with:
 
 ```shell
-docker compose exec web python manage.py test tests 
+docker compose run --volumes "$(pwd)/tests:/app/tests" --volumes "$(pwd)/project_files:/app/project_files" web python manage.py test tests --noinput
 ```
 
 ## Extras
@@ -78,14 +73,16 @@ project. It is also possible to run unit tests with it.
 The indentation and formatting is done with `.editonconfig`.  
 The following list highlights the possible improvements for this project:
 
-- The `Product` model contains a `price` field, but it is not used thus far. It might make sense to have some sort of
-  credit account model that could be used to validate whether a user could create an order for a given product;
+
 - More robust documentation of the API, specifying additional details about possible errors for a given route;
-- Additional tests to verify error scenarios;
-- A stack of unit tests to validate the models and serializers;
-- Improve `postgres` image creation;
+- File processing with async/await;
+- Endpoint permissions
+- Additional tests to verify error scenarios:
+  - More integration tests for implemented features that were not required by the challenge;
+  - A stack of unit tests to ensure code coverage;
+  - A selected set of functional tests to ensure that the production environment can be verified to work;
 - Create fixtures to be used in QA phase;
-- Create a set of Github Actions to manage the CI pipeline.
+- Create a set of GitHub Actions to manage the CI pipeline.
 
 ## Deployment process
 

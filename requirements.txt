@@ -1,4 +1,6 @@
+celery
 django
+django-money
 django-filter
 django-redis
 djangorestframework
@@ -6,3 +8,4 @@ drf-spectacular
 factory-boy
 faker
 psycopg2
+pyxirr
